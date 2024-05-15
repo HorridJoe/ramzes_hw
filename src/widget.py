@@ -1,7 +1,6 @@
 from src.masks import card_mask
 from src.masks import account_mask
 from datetime import datetime
-from typing import Any
 
 
 def masking_func(str_to_mask: str) -> str:
