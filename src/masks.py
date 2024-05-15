@@ -1,6 +1,3 @@
-import os
-
-
 def card_mask(card_number: str) -> str:
     """
     Возвращает маску карты
