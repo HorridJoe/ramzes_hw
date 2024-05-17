@@ -23,6 +23,6 @@ def return_date(datetime_input: str) -> str:
     :param datetime_input:
     :return:
     '''
-    parsed_date = datetime.strptime('2018-07-11T02:26:18.671407',
+    parsed_date = datetime.strptime(datetime_input,
                                     '%Y-%m-%dT%H:%M:%S.%f')
     return datetime.strftime(parsed_date, '%d.%m.%Y')
