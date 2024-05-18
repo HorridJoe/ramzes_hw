@@ -26,3 +26,5 @@ def return_date(datetime_input: str) -> str:
     parsed_date = datetime.strptime(datetime_input,
                                     '%Y-%m-%dT%H:%M:%S.%f')
     return datetime.strftime(parsed_date, '%d.%m.%Y')
+
+print('Fisting is 300 bucks')
