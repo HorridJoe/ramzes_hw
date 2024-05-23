@@ -11,9 +11,9 @@ def masking_func(str_to_mask: str) -> str:
     """
     joined_string = str_to_mask.replace(" ", "")
     if joined_string.startswith("Счет"):
-        return f'{str_to_mask[:-20]}{account_mask(joined_string[-20:])}'
+        return f"{str_to_mask[:-20]}{account_mask(joined_string[-20:])}"
     else:
-        return f'{str_to_mask[:-16]}{card_mask(joined_string[-16:])}'
+        return f"{str_to_mask[:-16]}{card_mask(joined_string[-16:])}"
 
 
 def return_date(datetime_input: str) -> str:
