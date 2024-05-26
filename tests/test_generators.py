@@ -1,4 +1,6 @@
-from src.generators import filter_by_currency, descriptions, card_number_generator
+from src.generators import (filter_by_currency,
+                            transaction_descriptions,
+                            card_number_generator)
 
 def test_transactions_usd(transactions, currency='USD'):
     expected = [939719570, 142264268, 895315941]
@@ -10,7 +12,7 @@ def test_transactions_rub(transactions, currency='RUB'):
     result = list(filter_by_currency(transactions, currency))
     assert result == expected
 
-def test_descriptions(transactions):
+def test_transaction_descriptions(transactions):
     expected = [
         "Перевод организации",
         "Перевод со счета на счет",
@@ -18,7 +20,7 @@ def test_descriptions(transactions):
         "Перевод с карты на карту",
         "Перевод организации"
     ]
-    result = list(descriptions(transactions))
+    result = list(transaction_descriptions(transactions))
     assert result == expected
 
 def test_card_number_generator():

@@ -7,14 +7,19 @@ def filter_by_currency(transactions, currency):
     :yield:
     '''
     for transaction in transactions:
-        if transaction['operationAmount']['currency']['name'] == currency:
+        if transaction['operationAmount']['currency']['code'] == currency:
             yield transaction['id']
 
-def descriptions(transactions):
-    pass
+def transaction_descriptions(transactions):
+    '''
+    Принимает список словарей;
+    возвращает описание каждой операции по очереди.
+    :param transactions:
+    :yield:
+    '''
+    for transaction in transactions:
+        yield transaction['description']
 
 def card_number_generator(start, stop):
     pass
-
-
 
