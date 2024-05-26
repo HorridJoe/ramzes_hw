@@ -1,13 +1,13 @@
-from src.generators import transactions_by_currency, descriptions, card_number_generator
+from src.generators import filter_by_currency, descriptions, card_number_generator
 
 def test_transactions_usd(transactions, currency='USD'):
     expected = [939719570, 142264268, 895315941]
-    result = list(transactions_by_currency(transactions, currency))
+    result = list(filter_by_currency(transactions, currency))
     assert result == expected
 
 def test_transactions_rub(transactions, currency='RUB'):
     expected = [873106923, 594226727]
-    result = list(transactions_by_currency(transactions, currency))
+    result = list(filter_by_currency(transactions, currency))
     assert result == expected
 
 def test_descriptions(transactions):
