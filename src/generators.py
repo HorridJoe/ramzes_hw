@@ -21,5 +21,15 @@ def transaction_descriptions(transactions):
         yield transaction['description']
 
 def card_number_generator(start, stop):
-    pass
+    '''
+    Генератор номеров банковских карт
+    в формате XXXX XXXX XXXX XXXX
+    :param start:
+    :param stop:
+    :yield:
+    '''
+    for num in range(start, stop + 1):
+        num_to_str = str(num)
+        full_number = num_to_str.zfill(16-len(num_to_str))
+        yield f"{full_number[:4]} {full_number[4:8]} {full_number[8:12]} {full_number[-4:]}"
 
