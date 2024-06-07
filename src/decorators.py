@@ -13,14 +13,14 @@ def log(filename=""):
             try:
                 result = func(*args, **kwargs)
                 if filename != "":
-                    with open("mylog.txt", "w") as file:
+                    with open(filename, "w") as file:
                         file.write(f"{func.__name__} ok")
                 else:
                     print(f"{func.__name__} ok")
                 return result
             except Exception as err:
                 if filename != "":
-                    with open("mylog.txt", "w") as file:
+                    with open(filename, "w") as file:
                         file.write(f"{func.__name__} error: {err}. Inputs: {args}, {kwargs}")
                 else:
                     print(f"{func.__name__} error: {err}. Inputs: {args}, {kwargs}")
