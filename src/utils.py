@@ -1,6 +1,6 @@
 import json
-
 import requests
+from external_api import ruble_exchange_rate
 
 
 def transactions_readout(transactions_input: str) -> list:
@@ -17,3 +17,18 @@ def transactions_readout(transactions_input: str) -> list:
         return []
     except ValueError:
         return []
+
+def transaction_sum_in_rubles(transaction: dict):
+    '''
+    Принимает на вход транзакцию и возвращает сумму транзакции в рублях
+    :param transaction:
+    :return:
+    '''
+    currency = transaction.get("code")
+    amount = transaction.get("amount")
+
+    if currency == "RUB":
+        return float(amount)
+    else:
+        exchange_rate = ruble_exchange_rate(currency)
+        return exchange_rate * float(amount)
