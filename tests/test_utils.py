@@ -3,7 +3,7 @@ from src.utils import transaction_sum_in_rubles
 
 
 def test_transactions_readout_ok(transactions):
-    input_file = "test_operations.json"
+    input_file = "./tests/test_operations.json"
     result = transactions_readout(input_file)
     expected = transactions
     assert result == expected
