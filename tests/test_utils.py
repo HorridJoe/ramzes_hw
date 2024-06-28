@@ -1,11 +1,5 @@
-import pytest
-import json
-
 from src.utils import transactions_readout
 from src.utils import transaction_sum_in_rubles
-
-from unittest.mock import Mock
-from unittest.mock import patch
 
 
 
