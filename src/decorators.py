@@ -2,11 +2,12 @@ from functools import wraps
 
 
 def log(filename=""):
-    '''
+    """
     Декоратор для логирования работы функции в текстовый файл
     :param filename:
     :return:
-    '''
+    """
+
     def wrapper(func):
         @wraps(func)
         def inner(*args, **kwargs):
