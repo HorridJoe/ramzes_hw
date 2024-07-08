@@ -4,7 +4,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(filename)s - %(levelname)s: %(message)s",
     filename="logs/masks.log",
-    filemode="w",
+    filemode="w"
 )
 masks_logger = logging.getLogger(__name__)
 
