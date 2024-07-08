@@ -18,13 +18,13 @@ def test_ruble_exchange_rate(mock_get):
         "rates": {"RUB": 89.749374},
     }
     transaction = {
-            "id": 895315941,
-            "state": "EXECUTED",
-            "date": "2018-08-19T04:27:37.904916",
-            "operationAmount": {"amount": "56883.54", "currency": {"name": "USD", "code": "USD"}},
-            "description": "Перевод с карты на карту",
-            "from": "Visa Classic 6831982476737658",
-            "to": "Visa Platinum 8990922113665229",
+        "id": 895315941,
+        "state": "EXECUTED",
+        "date": "2018-08-19T04:27:37.904916",
+        "operationAmount": {"amount": "56883.54", "currency": {"name": "USD", "code": "USD"}},
+        "description": "Перевод с карты на карту",
+        "from": "Visa Classic 6831982476737658",
+        "to": "Visa Platinum 8990922113665229",
     }
     assert ruble_exchange_rate(transaction) == 89.749374
     mock_get.assert_called_once_with("https://api.apilayer.com/fixer/latest?base=USD&symbols=RUB", headers=headers)

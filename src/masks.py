@@ -4,9 +4,10 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(filename)s - %(levelname)s: %(message)s",
     filename="logs/masks.log",
-    filemode="w"
+    filemode="w",
 )
 masks_logger = logging.getLogger(__name__)
+
 
 def card_mask(card_number: str) -> str:
     """
@@ -14,7 +15,7 @@ def card_mask(card_number: str) -> str:
     :param card_number:
     :return:
     """
-    masks_logger.info('Возвращена маска введенного номера карты')
+    masks_logger.info("Возвращена маска введенного номера карты")
     return f"{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"
 
 
@@ -24,5 +25,5 @@ def account_mask(account_number: str) -> str:
     :param account_number:
     :return:
     """
-    masks_logger.info('Возвращена маска введенного номера банковского счёта')
+    masks_logger.info("Возвращена маска введенного номера банковского счёта")
     return f"**{account_number[-4:]}"

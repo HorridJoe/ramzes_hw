@@ -6,7 +6,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(filename)s - %(levelname)s: %(message)s",
     filename="logs/utils.log",  # Запись логов в файл
-    filemode="w"
+    filemode="w",
 )
 utils_logger = logging.getLogger(__name__)
 
@@ -20,13 +20,13 @@ def transactions_readout(transactions_input: str) -> list:
     """
     try:
         with open(transactions_input, "r", encoding="utf-8") as file:
-            utils_logger.info('Список транзакций успешно извлечен')
+            utils_logger.info("Список транзакций успешно извлечен")
             return json.load(file)
     except FileNotFoundError:
-        utils_logger.error('Файл по указанному пути не найден')
+        utils_logger.error("Файл по указанному пути не найден")
         return []
     except ValueError:
-        utils_logger.error('Файл по указанному пути не содержит списка транзакций')
+        utils_logger.error("Файл по указанному пути не содержит списка транзакций")
         return []
 
 
@@ -40,9 +40,9 @@ def transaction_sum_in_rubles(transaction: dict):
     amount = transaction["operationAmount"]["amount"]
 
     if currency == "RUB":
-        utils_logger.info('Валюта транзакции - рубль; получать курс не нужно')
+        utils_logger.info("Валюта транзакции - рубль; получать курс не нужно")
         return float(amount)
     else:
-        utils_logger.info(f'Валюта транзакции - {currency}; возвращена сумма в рублях по актуальному курсу')
+        utils_logger.info(f"Валюта транзакции - {currency}; возвращена сумма в рублях по актуальному курсу")
         exchange_rate = ruble_exchange_rate(currency)
         return exchange_rate * float(amount)
